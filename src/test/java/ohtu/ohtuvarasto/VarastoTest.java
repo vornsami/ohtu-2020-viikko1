@@ -80,7 +80,7 @@ public class VarastoTest {
     }
     
     @Test
-    public void negatiivinenPyyntö() {
+    public void negatiivinenPyynto() {
         varasto.lisaaVarastoon(8);
 
         double saatuMaara = varasto.otaVarastosta(-1.0);
@@ -89,13 +89,13 @@ public class VarastoTest {
     }
     
     @Test
-    public void lisaysYliTäyden() {
+    public void lisaysYliTayden() {
         varasto.lisaaVarastoon(11.0);
 
         assertEquals(10.0, varasto.getSaldo(), vertailuTarkkuus);
     }
     @Test
-    public void pyyntöYliMäärän() {
+    public void pyyntoYliMaaran() {
         varasto.lisaaVarastoon(8);
 
         double saatuMaara = varasto.otaVarastosta(11);
