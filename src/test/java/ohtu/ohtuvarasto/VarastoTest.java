@@ -33,7 +33,7 @@ public class VarastoTest {
     @Test
     public void lisaysLisaaSaldoa() {
         varasto.lisaaVarastoon(8);
-
+        
         // saldon pitÃ¤isi olla sama kun lisÃ¤tty mÃ¤Ã¤rÃ¤
         assertEquals(8, varasto.getSaldo(), vertailuTarkkuus);
     }
@@ -64,5 +64,73 @@ public class VarastoTest {
         // varastossa pitÃ¤isi olla tilaa 10 - 8 + 2 eli 4
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
+    @Test
+    public void negatiivinenVarasto() {
+        Varasto tyhja = new Varasto(-1);
 
+        assertEquals(0.0, tyhja.getTilavuus(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void negatiivinenLisays() {
+        double ennen = varasto.getSaldo();
+        varasto.lisaaVarastoon(-1.0);
+
+        assertEquals(ennen, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void negatiivinenPyyntö() {
+        varasto.lisaaVarastoon(8);
+
+        double saatuMaara = varasto.otaVarastosta(-1.0);
+
+        assertEquals(0, saatuMaara, vertailuTarkkuus);
+    }
+    
+    @Test
+    public void lisaysYliTäyden() {
+        varasto.lisaaVarastoon(11.0);
+
+        assertEquals(10.0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    @Test
+    public void pyyntöYliMäärän() {
+        varasto.lisaaVarastoon(8);
+
+        double saatuMaara = varasto.otaVarastosta(11);
+
+        assertEquals(8, saatuMaara, vertailuTarkkuus);
+    }
+    
+    @Test
+    public void toStringTesti() {
+
+        assertEquals(varasto.toString(), "saldo = " + varasto.getSaldo() + ", vielÃ¤ tilaa " + varasto.paljonkoMahtuu());
+    }
+    @Test
+    public void negatiivinenVarastoAlkuSaldolla() {
+        Varasto tyhja = new Varasto(-1,0);
+
+        assertEquals(0.0, tyhja.getTilavuus(), vertailuTarkkuus);
+    }
+    @Test
+    public void negatiivinenAlkuSaldoVarasto() {
+        Varasto tyhja = new Varasto(5,-1);
+
+        assertEquals(0.0, tyhja.getSaldo(), vertailuTarkkuus);
+    }
+    @Test
+    public void yliAlkuSaldoVarasto() {
+        Varasto tyhja = new Varasto(5,6);
+
+        assertEquals(5.0, tyhja.getSaldo(), vertailuTarkkuus);
+    }
+    @Test
+    public void alkuSaldoVarasto() {
+        Varasto tyhja = new Varasto(10,5);
+
+        assertEquals(5.0, tyhja.getSaldo(), vertailuTarkkuus);
+        assertEquals(10.0, tyhja.getTilavuus(), vertailuTarkkuus);
+    }
 }
