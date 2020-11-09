@@ -14,19 +14,6 @@ public class Main {
         System.out.println("olutta.lisaaVarastoon(1000.0)");
         olutta.lisaaVarastoon(1000.0);
         System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
-        System.out.println("Olutvarasto: " + olutta);
+        
     }
 }
